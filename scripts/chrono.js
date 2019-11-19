@@ -17,13 +17,22 @@
   };
 
   /**
+   * Number of units to increment the parent.
+   */
+  var perParent = {
+    cents: 10,
+    seconds: 60,
+    minutes: 60,
+  };
+
+  /**
    * Converts milliseconds to correct unit.
    *
    * @param  {number} unit The unit we want to convert the milliseconds to.
    * @return {string} Returns the displayable string.
    */
   function getConvertedUnit(unit) {
-    var convertedUnit = Math.floor(currentTimer / unitInMilliseconds[unit]);
+    var convertedUnit = Math.floor(currentTimer / unitInMilliseconds[unit]) % (perParent[unit] || 1);
     return convertedUnit > 9 ? convertedUnit.toString() : '0' + convertedUnit.toString();
   }
 
