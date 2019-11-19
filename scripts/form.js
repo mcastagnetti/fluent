@@ -60,4 +60,9 @@
 
   // Attach `onsubmit` form method `handleSubmit` function.
   form.onsubmit = handleSubmit;
+
+  // Bind `oninput` to trigger chronometer's start function.
+  input.oninput = function() {
+    window.start();
+  };
 })();
